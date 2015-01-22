@@ -1,7 +1,7 @@
-Nexus Flux Router
+Isomorphic Router
 =================
 
-Tiny, isomorphic router for Nexus Flux.
+Tiny, lightweight, simple isomorphic router.
 
 Internally, it uses the same path-matching engine than `express`, but it's exposed directly to be usable in an isomorphic context.
 
