@@ -49,34 +49,34 @@ class Router {
     return this;
   }
 
-  route(url, storeResults = false) {
+  route(url) {
     if(__DEV__) {
       url.should.be.a.String;
     }
-    const results = storeResults ? [] : null;
+    const results = [];
     _.each(this._routes, (route) => {
       const res = route(url);
-      if(res !== null && storeResults) {
+      if(res !== null) {
         results.push(res);
       }
     });
-    return storeResults ? results : null;
+    return results;
   }
 
-  routeRequest(req, storeResults = false) {
+  routeRequest(req) {
     if(__DEV__) {
       req.should.be.an.Object.which.has.property('url').which.is.a.String;
       __NODE__.should.be.true;
     }
-    return this.route(req.url, storeResults);
+    return this.route(req.url);
   }
 
-  routeWindow(window, storeResults = false) {
+  routeWindow(window) {
     if(__DEV__) {
       window.should.be.an.Object;
       __BROWSER__.should.be.true;
     }
-    return this.route(window.location.href, storeResults);
+    return this.route((window.location || window.history.location).href);
   }
 }
 

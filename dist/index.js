@@ -84,18 +84,17 @@ var Router = (function () {
     },
     route: {
       value: function route(url) {
-        var storeResults = arguments[1] === undefined ? false : arguments[1];
         if (__DEV__) {
           url.should.be.a.String;
         }
-        var results = storeResults ? [] : null;
+        var results = [];
         _.each(this._routes, function (route) {
           var res = route(url);
-          if (res !== null && storeResults) {
+          if (res !== null) {
             results.push(res);
           }
         });
-        return storeResults ? results : null;
+        return results;
       },
       writable: true,
       enumerable: true,
@@ -103,12 +102,11 @@ var Router = (function () {
     },
     routeRequest: {
       value: function routeRequest(req) {
-        var storeResults = arguments[1] === undefined ? false : arguments[1];
         if (__DEV__) {
           req.should.be.an.Object.which.has.property("url").which.is.a.String;
           __NODE__.should.be["true"];
         }
-        return this.route(req.url, storeResults);
+        return this.route(req.url);
       },
       writable: true,
       enumerable: true,
@@ -116,12 +114,11 @@ var Router = (function () {
     },
     routeWindow: {
       value: function routeWindow(window) {
-        var storeResults = arguments[1] === undefined ? false : arguments[1];
         if (__DEV__) {
           window.should.be.an.Object;
           __BROWSER__.should.be["true"];
         }
-        return this.route(window.location.href, storeResults);
+        return this.route((window.location || window.history.location).href);
       },
       writable: true,
       enumerable: true,
