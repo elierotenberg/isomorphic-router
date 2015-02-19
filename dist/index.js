@@ -1,15 +1,12 @@
 "use strict";
 
-var _prototypeProperties = function (child, staticProps, instanceProps) {
-  if (staticProps) Object.defineProperties(child, staticProps);
-  if (instanceProps) Object.defineProperties(child.prototype, instanceProps);
-};
+var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
-var _interopRequire = function (obj) {
-  return obj && (obj["default"] || obj);
-};
+var _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
 
-require("6to5/polyfill");
+var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+require("babel/polyfill");
 var _ = require("lodash");
 var should = require("should");
 var Promise = (global || window).Promise = require("bluebird");
@@ -35,6 +32,8 @@ var Router = (function () {
   // A pattern is an express-like path pattern.
   // It typically is like /users/:user/* or the like.
   function Router() {
+    _classCallCheck(this, Router);
+
     _.bindAll(this);
     this._routes = [];
   }
@@ -45,7 +44,6 @@ var Router = (function () {
         this._routes = [];
       },
       writable: true,
-      enumerable: true,
       configurable: true
     },
     on: {
@@ -79,7 +77,6 @@ var Router = (function () {
         return this;
       },
       writable: true,
-      enumerable: true,
       configurable: true
     },
     route: {
@@ -97,7 +94,6 @@ var Router = (function () {
         return results;
       },
       writable: true,
-      enumerable: true,
       configurable: true
     },
     routeRequest: {
@@ -109,7 +105,6 @@ var Router = (function () {
         return this.route(req.url);
       },
       writable: true,
-      enumerable: true,
       configurable: true
     },
     routeWindow: {
@@ -121,7 +116,6 @@ var Router = (function () {
         return this.route((window.location || window.history.location).href);
       },
       writable: true,
-      enumerable: true,
       configurable: true
     }
   });

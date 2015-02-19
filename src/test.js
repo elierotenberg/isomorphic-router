@@ -1,10 +1,10 @@
 import Router from '../';
 
-const catchAll = 0;
-const users = 0;
-const user1 = 0;
-const queryFooBar = 0;
-const hashFoo = 0;
+let catchAll = 0;
+let users = 0;
+let user1 = 0;
+let queryFooBar = 0;
+let hashFoo = 0;
 
 const router = new Router()
 .on('/(.*)', () => catchAll = catchAll + 1)
