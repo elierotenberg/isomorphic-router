@@ -40,7 +40,7 @@ class Router {
       }
       match.shift();
       const params = {};
-      for(let k = 0; k < len; k = k +1) {
+      for(let k = 0; k < len; k = k + 1) {
         params[keys[k].name] = decodeParam(match[k]);
       }
       return fn(params, query, hash);
