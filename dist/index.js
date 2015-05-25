@@ -1,22 +1,23 @@
 'use strict';
 
-var _interopRequireDefault = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+var _createClass = require('babel-runtime/helpers/create-class')['default'];
 
-var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _Object$defineProperty = require('babel-runtime/core-js/object/define-property')['default'];
 
-Object.defineProperty(exports, '__esModule', {
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+
+_Object$defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _parse = require('url');
+var _url = require('url');
 
-var _pathToRegExp = require('path-to-regexp');
+var _pathToRegexp = require('path-to-regexp');
 
-var _pathToRegExp2 = _interopRequireDefault(_pathToRegExp);
+var _pathToRegexp2 = _interopRequireDefault(_pathToRegexp);
 
-require('babel/polyfill');
 var _ = require('lodash');
 var should = require('should');
 var Promise = (global || window).Promise = require('bluebird');
@@ -61,11 +62,11 @@ var Router = (function () {
       }
 
       var keys = [];
-      var re = _pathToRegExp2['default'](pattern, keys);
+      var re = (0, _pathToRegexp2['default'])(pattern, keys);
       var len = keys.length;
 
       this._routes.push(function (url) {
-        var u = _parse.parse(url, true);
+        var u = (0, _url.parse)(url, true);
         var pathname = u.pathname;
         var hash = u.hash;
 

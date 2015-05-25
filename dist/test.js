@@ -1,12 +1,11 @@
 'use strict';
 
-var _interopRequireDefault = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
-var _Router = require('../');
+var _2 = require('../');
 
-var _Router2 = _interopRequireDefault(_Router);
+var _3 = _interopRequireDefault(_2);
 
-require('babel/polyfill');
 var _ = require('lodash');
 var should = require('should');
 var Promise = (global || window).Promise = require('bluebird');
@@ -26,7 +25,7 @@ var queryFooBar = 0;
 var hashFoo = 0;
 
 /* eslint-disable no-unused-vars */
-var router = new _Router2['default']().on('/(.*)', function () {
+var router = new _3['default']().on('/(.*)', function () {
   return catchAll = catchAll + 1;
 }).on('/users', function () {
   return users = users + 1;
